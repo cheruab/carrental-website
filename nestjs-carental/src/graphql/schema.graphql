@@ -1,0 +1,5 @@
+# schema.graphql
+
+type Mutation {
+  deleteCar(id: ID!): Car
+}
