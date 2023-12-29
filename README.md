@@ -1,11 +1,11 @@
 # carrental-website
- **#Car Rental Website** **🚗**
+   ** **#Car Rental Website** 🚗**
   
 Welcome to the Car Rental Website! 
 This application allows users to browse and rent quality cars for their travel needs.
 The project is built with React for the frontend, NestJS for the backend, and uses a MySQL database with a GraphQL API.
 
- **#Features 🌟**
+   ** **#Features 🌟****
 
 **Car Listings:** Browse a wide variety of cars available for rent.
 
@@ -17,7 +17,7 @@ The project is built with React for the frontend, NestJS for the backend, and us
 
 **Responsive Design:** The application is designed to work seamlessly on various devices.
 
-**Technologies Used 🛠️**
+   ** **#Technologies Used 🛠️****
 
 **Frontend:**
   React
