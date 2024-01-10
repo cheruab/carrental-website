@@ -7,7 +7,6 @@ export class Car {
   @PrimaryGeneratedColumn('uuid')
   @Field()
   id: string;
-id: string;
   @Column()
   @Field()
   name: string;
