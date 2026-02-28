@@ -84,12 +84,7 @@ const CarName = styled.h3`
 `;
 
 const PricesContainer = styled.div`
-  ${tw`
-    w-full
-    flex
-    justify-start
-    mt-2
-  `};
+  ${tw`w-full flex justify-start mt-2`};
   gap: 1em;
 `;
 
@@ -126,19 +121,11 @@ const SmallIcon = styled.span`
 `;
 
 const CarDetailsContainer = styled.div`
-  ${tw`
-    flex
-    w-full
-    justify-between
-    mt-1
-  `};
+  ${tw`flex w-full justify-between mt-1`};
 `;
 
 const CarDetail = styled.span`
-  ${tw`
-    flex
-    items-center
-  `};
+  ${tw`flex items-center`};
 `;
 
 const CarInfo = styled.span`
@@ -156,21 +143,18 @@ const Separator = styled.div`
   margin: 0.8em 0;
 `;
 
-const RentButton = styled(Button)`
+/* Fix: use a wrapper div instead of styled(Button) to preserve prop types */
+const RentButtonWrapper = styled.div`
   width: 100%;
   margin-top: 0.5em;
+
+  button {
+    width: 100%;
+  }
 `;
 
 export function Car(props: ICarProps) {
-  const {
-    name,
-    thumbnailSrc,
-    dailyPrice,
-    monthlyPrice,
-    mileage,
-    gearType,
-    gas,
-  } = props;
+  const { name, thumbnailSrc, dailyPrice, monthlyPrice, mileage, gearType, gas } = props;
 
   return (
     <CarContainer>
@@ -191,25 +175,21 @@ export function Car(props: ICarProps) {
       <Separator />
       <CarDetailsContainer>
         <CarDetail>
-          <SmallIcon>
-            <FontAwesomeIcon icon={faTachometerAlt} />
-          </SmallIcon>
+          <SmallIcon><FontAwesomeIcon icon={faTachometerAlt} /></SmallIcon>
           <CarInfo>{mileage}</CarInfo>
         </CarDetail>
         <CarDetail>
-          <SmallIcon>
-            <FontAwesomeIcon icon={faEllipsisH} />
-          </SmallIcon>
+          <SmallIcon><FontAwesomeIcon icon={faEllipsisH} /></SmallIcon>
           <CarInfo>{gearType}</CarInfo>
         </CarDetail>
         <CarDetail>
-          <SmallIcon>
-            <FontAwesomeIcon icon={faFillDrip} />
-          </SmallIcon>
+          <SmallIcon><FontAwesomeIcon icon={faFillDrip} /></SmallIcon>
           <CarInfo>{gas}</CarInfo>
         </CarDetail>
       </CarDetailsContainer>
-      <RentButton text="Rent Now" />
+      <RentButtonWrapper>
+        <Button text="Rent Now" />
+      </RentButtonWrapper>
     </CarContainer>
   );
 }
