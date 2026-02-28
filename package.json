@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "react-redux": "^9.2.0",
     "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3"
   }
 }
