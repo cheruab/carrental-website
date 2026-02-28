@@ -4,6 +4,9 @@
     "yarn": "^1.22.22"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "5",
+    "@testing-library/react": "13",
+    "@testing-library/user-event": "14",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3"
   }
