@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { slide as Menu } from "react-burger-menu";
 import { useMediaQuery } from "react-responsive";
+import { NavLink } from "react-router-dom";
 import { SCREENS } from "../responsive";
 import menuStyles from "./menuStyles";
 
@@ -43,7 +44,7 @@ const NavItem = styled.li<{ menu?: boolean }>`
       transition: transform 0.25s ease;
     }
 
-    &:hover {
+    &:hover, &.active {
       color: #ffffff;
       &::after { transform: scaleX(1); }
     }
@@ -65,7 +66,7 @@ const NavItem = styled.li<{ menu?: boolean }>`
         border-bottom: 1px solid rgba(201, 168, 76, 0.12);
         transition: color 0.2s ease, padding-left 0.2s ease;
 
-        &:hover {
+        &:hover, &.active {
           color: #c9a84c;
           padding-left: 0.6em;
         }
@@ -75,7 +76,7 @@ const NavItem = styled.li<{ menu?: boolean }>`
     `}
 `;
 
-const BookNowBtn = styled.a`
+const BookNowBtn = styled(NavLink)`
   font-family: 'Courier New', monospace;
   font-size: 0.66rem;
   letter-spacing: 0.18em;
@@ -88,7 +89,6 @@ const BookNowBtn = styled.a`
   display: inline-block;
   margin-left: 0.8em;
   transition: all 0.25s ease;
-  cursor: pointer;
   white-space: nowrap;
 
   &:hover {
@@ -105,21 +105,21 @@ export function NavItems() {
     return (
       <Menu right styles={menuStyles}>
         <ListContainer style={{ flexDirection: 'column', alignItems: 'flex-start', padding: '0.5em 0' }}>
-          <NavItem menu><a href="/">Home</a></NavItem>
-          <NavItem menu><a href="/cars">Cars</a></NavItem>
-          <NavItem menu><a href="/services">Services</a></NavItem>
-          <NavItem menu><a href="/contact">Contact Us</a></NavItem>
+          <NavItem menu><NavLink to="/">Home</NavLink></NavItem>
+          <NavItem menu><NavLink to="/cars">Cars</NavLink></NavItem>
+          <NavItem menu><NavLink to="/services">Services</NavLink></NavItem>
+          <NavItem menu><NavLink to="/contact">Contact Us</NavLink></NavItem>
         </ListContainer>
       </Menu>
     );
 
   return (
     <ListContainer>
-      <NavItem><a href="/">Home</a></NavItem>
-      <NavItem><a href="/cars">Cars</a></NavItem>
-      <NavItem><a href="/services">Services</a></NavItem>
-      <NavItem><a href="/contact">Contact Us</a></NavItem>
-      <li><BookNowBtn href="/book">Book Now</BookNowBtn></li>
+      <NavItem><NavLink to="/">Home</NavLink></NavItem>
+      <NavItem><NavLink to="/cars">Cars</NavLink></NavItem>
+      <NavItem><NavLink to="/services">Services</NavLink></NavItem>
+      <NavItem><NavLink to="/contact">Contact Us</NavLink></NavItem>
+    
     </ListContainer>
   );
 }

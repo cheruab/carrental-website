@@ -226,7 +226,7 @@ export function Footer() {
         <BrandCol>
           <Logo color="white" bgColor="dark" />
           <Tagline>
-            Yourcar is a premium car rental company with locations worldwide,
+            CarRent is a premium car rental company with locations worldwide,
             offering top-quality vehicles and five-star rated service since 2010.
           </Tagline>
           <SocialRow>
@@ -249,21 +249,21 @@ export function Footer() {
           <ColTitle>Company</ColTitle>
           <LinkList>
             <LinkItem><a href="/">Home</a></LinkItem>
-            <LinkItem><a href="/about">About Us</a></LinkItem>
+            <LinkItem><a href="/contact">About Us</a></LinkItem>
             <LinkItem><a href="/services">Services</a></LinkItem>
-            <LinkItem><a href="/fleet">Our Fleet</a></LinkItem>
-            <LinkItem><a href="/blog">Blog</a></LinkItem>
+            <LinkItem><a href="/services">Our Fleet</a></LinkItem>
+            <LinkItem><a href="/">Blog</a></LinkItem>
           </LinkList>
         </Col>
 
         <Col>
           <ColTitle>Support</ColTitle>
           <LinkList>
-            <LinkItem><a href="/faq">FAQ</a></LinkItem>
+            <LinkItem><a href="/contact">FAQ</a></LinkItem>
             <LinkItem><a href="/contact">Contact Us</a></LinkItem>
-            <LinkItem><a href="/help">Help Centre</a></LinkItem>
-            <LinkItem><a href="/privacy">Privacy Policy</a></LinkItem>
-            <LinkItem><a href="/terms">Terms &amp; Conditions</a></LinkItem>
+            <LinkItem><a href="/contact">Help Centre</a></LinkItem>
+            <LinkItem><a href="/contact">Privacy Policy</a></LinkItem>
+            <LinkItem><a href="/contact">Terms &amp; Conditions</a></LinkItem>
           </LinkList>
         </Col>
 
@@ -274,21 +274,21 @@ export function Footer() {
               <IconBox><FontAwesomeIcon icon={faPhoneAlt} /></IconBox>
               <ContactInfo>
                 <ContactLabel>Call Us</ContactLabel>
-                <ContactValue>+91 555-234-8469</ContactValue>
+                <ContactValue>+251 912-345-678</ContactValue>
               </ContactInfo>
             </ContactRow>
             <ContactRow>
               <IconBox><FontAwesomeIcon icon={faEnvelope} /></IconBox>
               <ContactInfo>
                 <ContactLabel>Email Us</ContactLabel>
-                <ContactValue>info@yourcar.com</ContactValue>
+                <ContactValue>info@carent.com</ContactValue>
               </ContactInfo>
             </ContactRow>
             <ContactRow>
               <IconBox><FontAwesomeIcon icon={faMapMarkerAlt} /></IconBox>
               <ContactInfo>
                 <ContactLabel>Head Office</ContactLabel>
-                <ContactValue>New Delhi, India</ContactValue>
+                <ContactValue>Addis Ababa, Ethiopia</ContactValue>
               </ContactInfo>
             </ContactRow>
           </ContactList>
@@ -299,7 +299,7 @@ export function Footer() {
 
       <BottomBar>
         <Copyright>
-          &copy; {new Date().getFullYear()} Yourcar. All rights reserved.
+          &copy; {new Date().getFullYear()} CarRent. All rights reserved.
         </Copyright>
         <BadgeRow>
           <Badge>ISO Certified</Badge>

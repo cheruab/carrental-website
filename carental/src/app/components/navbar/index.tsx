@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
+import { Link } from "react-router-dom";
 import { Logo } from "../logo";
 import { NavItems } from "./navItems";
 
@@ -38,11 +39,24 @@ const NavbarContainer = styled.div<{ scrolled: boolean }>`
     scrolled ? '0 4px 30px rgba(0,0,0,0.5)' : 'none'};
 `;
 
-const BrandContainer = styled.div`
+const BrandLink = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75em;
   text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    text-decoration: none;
+  }
 `;
 
 const CompanyName = styled.span`
@@ -53,7 +67,6 @@ const CompanyName = styled.span`
   letter-spacing: 0.04em;
   line-height: 1;
 
-  /* Gold accent on the last letter */
   span {
     color: #c9a84c;
   }
@@ -80,11 +93,13 @@ export function Navbar() {
 
   return (
     <NavbarContainer scrolled={scrolled}>
-      <BrandContainer>
-        <Logo color="white" bgColor="dark" />
-        <Divider />
-        <CompanyName><span>Car</span>Rent</CompanyName>
-      </BrandContainer>
+      <BrandLink>
+        <Link to="/">
+          <Logo color="white" bgColor="dark" />
+          <Divider />
+          <CompanyName><span>Car</span>Rent</CompanyName>
+        </Link>
+      </BrandLink>
       <NavItems />
     </NavbarContainer>
   );
