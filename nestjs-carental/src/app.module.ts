@@ -4,18 +4,19 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ComponentsModule } from './components/components.module';
-import { CarsModule } from './components/cars/cars.module';
+
 @Module({
   imports: [
-    ConfigModule.forRoot(), 
-    DatabaseModule, 
-    GraphQLModule.forRoot({
-    playground: true,
-    debug: true,
-    autoSchemaFile: true,
-}), 
-  ComponentsModule,
+    ConfigModule.forRoot(),
+    DatabaseModule,
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      playground: true,
+      autoSchemaFile: true,
+    }),
+    ComponentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

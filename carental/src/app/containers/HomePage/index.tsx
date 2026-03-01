@@ -59,17 +59,17 @@ export function HomePage() {
       <BookCardWrapper>
         <BookCard />
       </BookCardWrapper>
-      <Marginer direction="vertical" margin="7em" />
+      <Marginer direction="vertical" margin="6em" />
       <SectionWrapper>
-        <BookingSteps />
+        <TopCars />
       </SectionWrapper>
       <Marginer direction="vertical" margin="6em" />
       <SectionWrapper>
         <AboutUs />
       </SectionWrapper>
-      <Marginer direction="vertical" margin="6em" />
+      <Marginer direction="vertical" margin="7em" />
       <SectionWrapper>
-        <TopCars />
+        <BookingSteps />
       </SectionWrapper>
       <Marginer direction="vertical" margin="4em" />
       <Footer />

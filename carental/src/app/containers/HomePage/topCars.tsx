@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import tw from "twin.macro";
 import { Car } from "../../components/car";
@@ -7,7 +7,6 @@ import "@brainhubeu/react-carousel/lib/style.css";
 import { useMediaQuery } from "react-responsive";
 import { SCREENS } from "../../components/responsive";
 import carService from "../../services/carService";
-import { Dispatch } from "redux";
 import { GetCars_cars } from "../../services/carService/__generated__/GetCars";
 import { setTopCars } from "./slice";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,19 +20,7 @@ const fadeUp = keyframes`
 `;
 
 const TopCarsContainer = styled.div`
-  ${tw`
-    max-w-screen-lg
-    w-full
-    flex
-    flex-col
-    items-center
-    justify-center
-    pr-4
-    pl-4
-    md:pl-0
-    md:pr-0
-    mb-10
-  `};
+  ${tw`max-w-screen-lg w-full flex flex-col items-center justify-center pr-4 pl-4 md:pl-0 md:pr-0 mb-10`};
   animation: ${fadeUp} 0.8s ease forwards;
 `;
 
@@ -54,10 +41,7 @@ const Title = styled.h2`
   text-align: center;
   line-height: 1.2;
   font-size: 2rem;
-
-  @media (min-width: 1024px) {
-    font-size: 3rem;
-  }
+  @media (min-width: 1024px) { font-size: 3rem; }
 `;
 
 const GoldLine = styled.div`
@@ -68,21 +52,13 @@ const GoldLine = styled.div`
 `;
 
 const CarsContainer = styled.div`
-  ${tw`
-    w-full
-    flex
-    flex-wrap
-    justify-center
-    mt-7
-    md:mt-10
-  `};
+  ${tw`w-full flex flex-wrap justify-center mt-7 md:mt-10`};
 `;
 
 const EmptyCars = styled.div`
   ${tw`w-full flex justify-center items-center text-sm`};
   color: #9a9aaa;
   font-family: 'Georgia', serif;
-  letter-spacing: 0.1em;
   padding: 3em 0;
 `;
 
@@ -90,42 +66,42 @@ const LoadingContainer = styled.div`
   ${tw`w-full mt-9 flex justify-center items-center`};
 `;
 
-const actionDispatch = (dispatch: Dispatch) => ({
-  setTopCars: (cars: GetCars_cars[]) => dispatch(setTopCars(cars)),
-});
-
-const stateSelector = createSelector(makeSelectTopCars, (topCars) => ({
-  topCars,
-}));
+const stateSelector = createSelector(makeSelectTopCars, (topCars) => ({ topCars }));
 
 export function TopCars() {
   const [current, setCurrent] = useState(0);
   const [isLoading, setLoading] = useState(false);
-
   const isMobile = useMediaQuery({ maxWidth: SCREENS.sm });
 
   const { topCars } = useSelector(stateSelector);
-  const { setTopCars: setTopCarsAction } = actionDispatch(useDispatch());
+  const dispatch = useDispatch();
 
-  const fetchTopCars = useCallback(async () => {
-    setLoading(true);
-    const cars = await carService.getCars().catch((err) => {
-      console.log("Error: ", err);
-    });
-    if (cars) setTopCarsAction(cars);
-    setLoading(false);
-  }, [setTopCarsAction]);
+  // Use a ref so the effect only runs once on mount
+  const hasFetched = useRef(false);
 
   useEffect(() => {
+    if (hasFetched.current) return;
+    hasFetched.current = true;
+
+    const fetchTopCars = async () => {
+      setLoading(true);
+      const cars = await carService.getCars().catch((err) => {
+        console.log("Error fetching cars:", err);
+        return undefined;
+      });
+      if (cars) dispatch(setTopCars(cars as GetCars_cars[]));
+      setLoading(false);
+    };
+
     fetchTopCars();
-  }, [fetchTopCars]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const isEmptyTopCars = !topCars || topCars.length === 0;
 
   const cars =
     (!isEmptyTopCars &&
       topCars.map((car) => (
-        <Car {...car} thumbnailSrc={car.thumbnailUrl} />
+        <Car key={car.id} {...car} thumbnailSrc={car.thumbnailUrl} />
       ))) ||
     [];
 
@@ -150,28 +126,11 @@ export function TopCars() {
             slides={cars}
             plugins={[
               "clickToChange",
-              {
-                resolve: slidesToShowPlugin,
-                options: { numberOfSlides: 3 },
-              },
+              { resolve: slidesToShowPlugin, options: { numberOfSlides: 3 } },
             ]}
             breakpoints={{
-              640: {
-                plugins: [
-                  {
-                    resolve: slidesToShowPlugin,
-                    options: { numberOfSlides: 1 },
-                  },
-                ],
-              },
-              900: {
-                plugins: [
-                  {
-                    resolve: slidesToShowPlugin,
-                    options: { numberOfSlides: 2 },
-                  },
-                ],
-              },
+              640: { plugins: [{ resolve: slidesToShowPlugin, options: { numberOfSlides: 1 } }] },
+              900: { plugins: [{ resolve: slidesToShowPlugin, options: { numberOfSlides: 2 } }] },
             }}
           />
           <Dots value={current} onChange={setCurrent} number={numberOfDots} />
