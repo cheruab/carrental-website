@@ -3,14 +3,12 @@ import {
   faCalendarAlt,
   faCaretDown,
   faCaretUp,
-  faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled, { css } from "styled-components";
 import tw from "twin.macro";
 import { Button } from "../button";
 import { Marginer } from "../marginer";
-
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { SCREENS } from "../responsive";
@@ -20,8 +18,6 @@ const CardContainer = styled.div`
   border: 1px solid #e8e2d8;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
   width: 100%;
-  position: relative;
-
   ${tw`
     flex
     justify-center
@@ -83,10 +79,7 @@ const LineSeperator = styled.span`
   height: 2.5em;
   background: #e8e2d8;
   margin: 0 1.5em;
-
-  @media (max-width: 640px) {
-    display: none;
-  }
+  @media (max-width: 640px) { display: none; }
 `;
 
 const DateCalendar = styled(Calendar)`
@@ -100,24 +93,15 @@ const DateCalendar = styled(Calendar)`
   z-index: 999;
   font-family: 'Georgia', serif;
 
-  ${({ offset }: any) =>
-    offset &&
-    css`
-      left: -6em;
-    `};
+  ${({ offset }: any) => offset && css`left: -6em;`};
 
   @media (min-width: ${SCREENS.md}) {
     top: 4em;
     left: -2em;
   }
 
-  .react-calendar__tile--active {
-    background: #c9a84c !important;
-  }
-
-  .react-calendar__tile:hover {
-    background: #f8f5ef;
-  }
+  .react-calendar__tile--active { background: #c9a84c !important; }
+  .react-calendar__tile:hover { background: #f8f5ef; }
 ` as any;
 
 export function BookCard() {
@@ -142,9 +126,7 @@ export function BookCard() {
   return (
     <CardContainer>
       <ItemContainer>
-        <Icon>
-          <FontAwesomeIcon icon={faCalendarAlt} />
-        </Icon>
+        <Icon><FontAwesomeIcon icon={faCalendarAlt} /></Icon>
         <Name onClick={toggleStartDateCalendar}>
           <Label>Pick Up</Label>
           <NameText>
@@ -160,9 +142,7 @@ export function BookCard() {
       </ItemContainer>
       <LineSeperator />
       <ItemContainer>
-        <Icon>
-          <FontAwesomeIcon icon={faCalendarAlt} />
-        </Icon>
+        <Icon><FontAwesomeIcon icon={faCalendarAlt} /></Icon>
         <Name onClick={toggleReturnDateCalendar}>
           <Label>Return</Label>
           <NameText>
@@ -173,11 +153,7 @@ export function BookCard() {
           </NameText>
         </Name>
         {isReturnCalendarOpen && (
-          <DateCalendar
-            offset
-            value={returnDate}
-            onChange={setReturnDate as any}
-          />
+          <DateCalendar offset value={returnDate} onChange={setReturnDate as any} />
         )}
       </ItemContainer>
       <Marginer direction="horizontal" margin="1.5em" />
