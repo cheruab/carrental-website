@@ -5,23 +5,17 @@ import React from "react";
 import styled from "styled-components";
 import { Logo } from "../logo";
 
-/* ─── Wrapper ─────────────────────────────────────────────────────────────── */
-
 const FooterWrapper = styled.footer`
   width: 100%;
   background: #08080f;
   border-top: 1px solid rgba(201, 168, 76, 0.3);
 `;
 
-/* ─── Top gold accent bar ───────────────────────────────────────────────────*/
-
 const GoldBar = styled.div`
   width: 100%;
   height: 3px;
   background: linear-gradient(90deg, transparent 0%, #c9a84c 40%, #e8d5a3 60%, transparent 100%);
 `;
-
-/* ─── Main content area — centered, max-width, equal padding ────────────── */
 
 const Inner = styled.div`
   max-width: 1200px;
@@ -40,8 +34,6 @@ const Inner = styled.div`
     gap: 2em;
   }
 `;
-
-/* ─── Brand column ──────────────────────────────────────────────────────── */
 
 const BrandCol = styled.div`
   display: flex;
@@ -82,8 +74,6 @@ const SocialIcon = styled.a`
     background: rgba(201, 168, 76, 0.08);
   }
 `;
-
-/* ─── Link columns ──────────────────────────────────────────────────────── */
 
 const Col = styled.div`
   display: flex;
@@ -134,13 +124,10 @@ const LinkItem = styled.li`
     &:hover {
       color: #e0e0e8;
       gap: 0.75em;
-
       &::before { opacity: 1; }
     }
   }
 `;
-
-/* ─── Contact column ────────────────────────────────────────────────────── */
 
 const ContactList = styled.div`
   display: flex;
@@ -187,8 +174,6 @@ const ContactValue = styled.span`
   color: #b0b0be;
 `;
 
-/* ─── Divider ───────────────────────────────────────────────────────────── */
-
 const Divider = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -197,8 +182,6 @@ const Divider = styled.div`
   margin-left: 2em;
   margin-right: 2em;
 `;
-
-/* ─── Bottom bar ────────────────────────────────────────────────────────── */
 
 const BottomBar = styled.div`
   max-width: 1200px;
@@ -235,62 +218,55 @@ const Badge = styled.span`
   padding: 0.3em 0.85em;
 `;
 
-/* ─── Component ─────────────────────────────────────────────────────────── */
-
 export function Footer() {
   return (
     <FooterWrapper>
       <GoldBar />
-
       <Inner>
-        {/* Brand */}
         <BrandCol>
           <Logo color="white" bgColor="dark" />
           <Tagline>
-            Carent is a premium car rental company with locations worldwide,
+            Yourcar is a premium car rental company with locations worldwide,
             offering top-quality vehicles and five-star rated service since 2010.
           </Tagline>
           <SocialRow>
-            <SocialIcon href="#" aria-label="Facebook">
+            <SocialIcon href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faFacebook} />
             </SocialIcon>
-            <SocialIcon href="#" aria-label="Instagram">
+            <SocialIcon href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faInstagram} />
             </SocialIcon>
-            <SocialIcon href="#" aria-label="Twitter">
+            <SocialIcon href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faTwitter} />
             </SocialIcon>
-            <SocialIcon href="#" aria-label="LinkedIn">
+            <SocialIcon href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faLinkedin} />
             </SocialIcon>
           </SocialRow>
         </BrandCol>
 
-        {/* Company links */}
         <Col>
           <ColTitle>Company</ColTitle>
           <LinkList>
-            <LinkItem><a href="#">Home</a></LinkItem>
-            <LinkItem><a href="#">About Us</a></LinkItem>
-            <LinkItem><a href="#">Services</a></LinkItem>
-            <LinkItem><a href="#">Our Fleet</a></LinkItem>
-            <LinkItem><a href="#">Blog</a></LinkItem>
+            <LinkItem><a href="/">Home</a></LinkItem>
+            <LinkItem><a href="/about">About Us</a></LinkItem>
+            <LinkItem><a href="/services">Services</a></LinkItem>
+            <LinkItem><a href="/fleet">Our Fleet</a></LinkItem>
+            <LinkItem><a href="/blog">Blog</a></LinkItem>
           </LinkList>
         </Col>
 
-        {/* Support links */}
         <Col>
           <ColTitle>Support</ColTitle>
           <LinkList>
-            <LinkItem><a href="#">FAQ</a></LinkItem>
-            <LinkItem><a href="#">Contact Us</a></LinkItem>
-            <LinkItem><a href="#">Help Centre</a></LinkItem>
-            <LinkItem><a href="#">Privacy Policy</a></LinkItem>
-            <LinkItem><a href="#">Terms &amp; Conditions</a></LinkItem>
+            <LinkItem><a href="/faq">FAQ</a></LinkItem>
+            <LinkItem><a href="/contact">Contact Us</a></LinkItem>
+            <LinkItem><a href="/help">Help Centre</a></LinkItem>
+            <LinkItem><a href="/privacy">Privacy Policy</a></LinkItem>
+            <LinkItem><a href="/terms">Terms &amp; Conditions</a></LinkItem>
           </LinkList>
         </Col>
 
-        {/* Contact */}
         <Col>
           <ColTitle>Get In Touch</ColTitle>
           <ContactList>
@@ -298,21 +274,21 @@ export function Footer() {
               <IconBox><FontAwesomeIcon icon={faPhoneAlt} /></IconBox>
               <ContactInfo>
                 <ContactLabel>Call Us</ContactLabel>
-                <ContactValue>+251 912-345-678</ContactValue>
+                <ContactValue>+91 555-234-8469</ContactValue>
               </ContactInfo>
             </ContactRow>
             <ContactRow>
               <IconBox><FontAwesomeIcon icon={faEnvelope} /></IconBox>
               <ContactInfo>
                 <ContactLabel>Email Us</ContactLabel>
-                <ContactValue>info@carent.com</ContactValue>
+                <ContactValue>info@yourcar.com</ContactValue>
               </ContactInfo>
             </ContactRow>
             <ContactRow>
               <IconBox><FontAwesomeIcon icon={faMapMarkerAlt} /></IconBox>
               <ContactInfo>
                 <ContactLabel>Head Office</ContactLabel>
-                <ContactValue>Addis Ababa, Ethiopia</ContactValue>
+                <ContactValue>New Delhi, India</ContactValue>
               </ContactInfo>
             </ContactRow>
           </ContactList>
@@ -323,7 +299,7 @@ export function Footer() {
 
       <BottomBar>
         <Copyright>
-          &copy; {new Date().getFullYear()} Carent. All rights reserved.
+          &copy; {new Date().getFullYear()} Yourcar. All rights reserved.
         </Copyright>
         <BadgeRow>
           <Badge>ISO Certified</Badge>

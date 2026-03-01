@@ -5,13 +5,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import tw from "twin.macro";
-
-const fadeUp = keyframes`
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-`;
 
 const Container = styled.div`
   ${tw`
@@ -82,21 +77,6 @@ const StepContainer = styled.div`
   align-items: center;
   width: 260px;
   position: relative;
-
-  &:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 3.2em;
-    right: -2em;
-    width: 1em;
-    height: 1px;
-    background: #c9a84c40;
-    display: none;
-
-    @media (min-width: 900px) {
-      display: block;
-    }
-  }
 `;
 
 const StepNumber = styled.div`
@@ -175,7 +155,7 @@ export function BookingSteps() {
           </Step>
           <StepTitle>Choose Location</StepTitle>
           <StepDescription>
-            Find the nearest Carent point and book your car.
+            Find the nearest Yourcar point and book your car.
           </StepDescription>
         </StepContainer>
         <StepContainer>

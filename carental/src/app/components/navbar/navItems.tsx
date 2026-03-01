@@ -22,7 +22,7 @@ const NavItem = styled.li<{ menu?: boolean }>`
     font-size: 0.7rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #d0d0d8;        /* clearly visible white-grey */
+    color: #d0d0d8;
     text-decoration: none;
     padding: 0.55em 0.9em;
     display: block;
@@ -105,21 +105,21 @@ export function NavItems() {
     return (
       <Menu right styles={menuStyles}>
         <ListContainer style={{ flexDirection: 'column', alignItems: 'flex-start', padding: '0.5em 0' }}>
-          <NavItem menu><a href="#">Home</a></NavItem>
-          <NavItem menu><a href="#">Cars</a></NavItem>
-          <NavItem menu><a href="#">Services</a></NavItem>
-          <NavItem menu><a href="#">Contact Us</a></NavItem>
+          <NavItem menu><a href="/">Home</a></NavItem>
+          <NavItem menu><a href="/cars">Cars</a></NavItem>
+          <NavItem menu><a href="/services">Services</a></NavItem>
+          <NavItem menu><a href="/contact">Contact Us</a></NavItem>
         </ListContainer>
       </Menu>
     );
 
   return (
     <ListContainer>
-      <NavItem><a href="#">Home</a></NavItem>
-      <NavItem><a href="#">Cars</a></NavItem>
-      <NavItem><a href="#">Services</a></NavItem>
-      <NavItem><a href="#">Contact Us</a></NavItem>
-      <li><BookNowBtn href="#">Book Now</BookNowBtn></li>
+      <NavItem><a href="/">Home</a></NavItem>
+      <NavItem><a href="/cars">Cars</a></NavItem>
+      <NavItem><a href="/services">Services</a></NavItem>
+      <NavItem><a href="/contact">Contact Us</a></NavItem>
+      <li><BookNowBtn href="/book">Book Now</BookNowBtn></li>
     </ListContainer>
   );
 }
