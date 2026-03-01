@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import styled, { keyframes } from "styled-components";
 import tw from "twin.macro";
-import { ICar } from "../../../typings/car";
 import { Car } from "../../components/car";
 import Carousel, { Dots, slidesToShowPlugin } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
@@ -54,7 +53,6 @@ const Title = styled.h2`
   color: #0a0a0f;
   text-align: center;
   line-height: 1.2;
-
   font-size: 2rem;
 
   @media (min-width: 1024px) {
@@ -81,13 +79,7 @@ const CarsContainer = styled.div`
 `;
 
 const EmptyCars = styled.div`
-  ${tw`
-    w-full
-    flex
-    justify-center
-    items-center
-    text-sm
-  `};
+  ${tw`w-full flex justify-center items-center text-sm`};
   color: #9a9aaa;
   font-family: 'Georgia', serif;
   letter-spacing: 0.1em;
@@ -95,13 +87,7 @@ const EmptyCars = styled.div`
 `;
 
 const LoadingContainer = styled.div`
-  ${tw`
-    w-full
-    mt-9
-    flex
-    justify-center
-    items-center
-  `};
+  ${tw`w-full mt-9 flex justify-center items-center`};
 `;
 
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -119,30 +105,28 @@ export function TopCars() {
   const isMobile = useMediaQuery({ maxWidth: SCREENS.sm });
 
   const { topCars } = useSelector(stateSelector);
-  const { setTopCars } = actionDispatch(useDispatch());
+  const { setTopCars: setTopCarsAction } = actionDispatch(useDispatch());
 
-  console.log("Cars", topCars);
-
-  const fetchTopCars = async () => {
+  const fetchTopCars = useCallback(async () => {
     setLoading(true);
     const cars = await carService.getCars().catch((err) => {
       console.log("Error: ", err);
     });
-
-    console.log("Cars: ", cars);
-    if (cars) setTopCars(cars);
+    if (cars) setTopCarsAction(cars);
     setLoading(false);
-  };
+  }, [setTopCarsAction]);
 
   useEffect(() => {
     fetchTopCars();
-  }, []);
+  }, [fetchTopCars]);
 
   const isEmptyTopCars = !topCars || topCars.length === 0;
 
   const cars =
     (!isEmptyTopCars &&
-      topCars.map((car) => <Car {...car} thumbnailSrc={car.thumbnailUrl} />)) ||
+      topCars.map((car) => (
+        <Car {...car} thumbnailSrc={car.thumbnailUrl} />
+      ))) ||
     [];
 
   const numberOfDots = isMobile ? cars.length : Math.ceil(cars.length / 3);
@@ -168,9 +152,7 @@ export function TopCars() {
               "clickToChange",
               {
                 resolve: slidesToShowPlugin,
-                options: {
-                  numberOfSlides: 3,
-                },
+                options: { numberOfSlides: 3 },
               },
             ]}
             breakpoints={{
@@ -178,9 +160,7 @@ export function TopCars() {
                 plugins: [
                   {
                     resolve: slidesToShowPlugin,
-                    options: {
-                      numberOfSlides: 1,
-                    },
+                    options: { numberOfSlides: 1 },
                   },
                 ],
               },
@@ -188,9 +168,7 @@ export function TopCars() {
                 plugins: [
                   {
                     resolve: slidesToShowPlugin,
-                    options: {
-                      numberOfSlides: 2,
-                    },
+                    options: { numberOfSlides: 2 },
                   },
                 ],
               },
@@ -202,3 +180,5 @@ export function TopCars() {
     </TopCarsContainer>
   );
 }
+
+export default TopCars;

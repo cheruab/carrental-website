@@ -7,7 +7,7 @@ import { Marginer } from "../../components/marginer";
 import { Navbar } from "../../components/navbar";
 import { AboutUs } from "./aboutUs";
 import { BookingSteps } from "./bookingSteps";
-import { TopCars } from "./topCars";
+import TopCars  from "./topCars";
 import { TopSection } from "./topSection";
 
 const PageContainer = styled.div`
