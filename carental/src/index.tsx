@@ -8,18 +8,19 @@ import * as serviceWorker from "./serviceWorker";
 import { ApolloProvider } from "@apollo/client";
 import { apolloClient } from "./app/graphql";
 
+// Cast to any to bypass @types/react v16 vs react-redux v7.2 JSX incompatibility
+const ReduxProvider = Provider as any;
+const Apollo = ApolloProvider as any;
+
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ApolloProvider client={apolloClient}>
+    <ReduxProvider store={store}>
+      <Apollo client={apolloClient}>
         <App />
-      </ApolloProvider>
-    </Provider>
+      </Apollo>
+    </ReduxProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
