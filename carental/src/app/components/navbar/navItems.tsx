@@ -76,25 +76,30 @@ const NavItem = styled.li<{ menu?: boolean }>`
     `}
 `;
 
-const BookNowBtn = styled(NavLink)`
-  font-family: 'Courier New', monospace;
-  font-size: 0.66rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 700;
-  background: linear-gradient(135deg, #c9a84c, #e8d5a3);
-  color: #0a0a0f !important;
-  padding: 0.65em 1.4em;
-  text-decoration: none;
-  display: inline-block;
+const BookNowItem = styled.li`
   margin-left: 0.8em;
-  transition: all 0.25s ease;
-  white-space: nowrap;
 
-  &:hover {
-    background: linear-gradient(135deg, #b8943c, #d4c090);
-    box-shadow: 0 4px 18px rgba(201, 168, 76, 0.45);
-    transform: translateY(-1px);
+  a {
+    font-family: 'Courier New', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: linear-gradient(135deg, #c9a84c, #e8d5a3);
+    color: #0a0a0f !important;
+    padding: 0.65em 1.4em;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background: linear-gradient(135deg, #b8943c, #d4c090);
+      box-shadow: 0 4px 18px rgba(201, 168, 76, 0.45);
+      transform: translateY(-1px);
+    }
+
+    &::after { display: none !important; }
   }
 `;
 
@@ -119,7 +124,7 @@ export function NavItems() {
       <NavItem><NavLink to="/cars">Cars</NavLink></NavItem>
       <NavItem><NavLink to="/services">Services</NavLink></NavItem>
       <NavItem><NavLink to="/contact">Contact Us</NavLink></NavItem>
-    
+      <BookNowItem><NavLink to="/cars">Book Now</NavLink></BookNowItem>
     </ListContainer>
   );
 }

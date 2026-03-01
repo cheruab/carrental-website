@@ -5,8 +5,7 @@ import { Footer } from "../../components/footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCarSide, faShieldAlt, faHeadset, faMapMarkedAlt,
-  faClock, faCheckCircle, faStar, faThumbsUp,
-  faWrench, faRoad, faGlobeAmericas, faHandshake,
+  faCheckCircle, faWrench, faRoad, faGlobeAmericas, faHandshake,
 } from "@fortawesome/free-solid-svg-icons";
 
 const fadeUp = keyframes`
@@ -73,7 +72,6 @@ const GoldLine = styled.div`
   margin: 1.2em auto 0;
 `;
 
-/* ── Main services grid ── */
 const Section = styled.section`
   max-width: 1200px;
   margin: 0 auto;
@@ -163,7 +161,6 @@ const ServiceDesc = styled.p`
   margin: 0;
 `;
 
-/* ── Why us strip ── */
 const WhyStrip = styled.div`
   background: linear-gradient(135deg, #0a0a0f, #13131f);
   padding: 5em 2em;
@@ -189,9 +186,7 @@ const WhyInner = styled.div`
   @media (min-width: 1024px) { grid-template-columns: 1fr 1fr 1fr 1fr; }
 `;
 
-const WhyStat = styled.div`
-  text-align: center;
-`;
+const WhyStat = styled.div`text-align: center;`;
 
 const WhyNumber = styled.div`
   font-family: 'Georgia', serif;
@@ -210,7 +205,6 @@ const WhyLabel = styled.div`
   color: #7a7a8a;
 `;
 
-/* ── Plans ── */
 const PlansSection = styled.section`
   background: #fff;
   padding: 5em 2em;
@@ -280,7 +274,6 @@ const PlanFeatures = styled.ul<{ featured?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 0.8em;
-
   li {
     font-family: 'Georgia', serif;
     font-size: 0.9rem;
@@ -288,10 +281,9 @@ const PlanFeatures = styled.ul<{ featured?: boolean }>`
     display: flex;
     align-items: center;
     gap: 0.6em;
-
     svg { color: #c9a84c; font-size: 0.75rem; flex-shrink: 0; }
   }
-`;
+` as any;
 
 const PlanBtn = styled.button<{ featured?: boolean }>`
   width: 100%;
@@ -329,7 +321,6 @@ export function ServicesPage() {
     <PageWrapper>
       <Navbar />
       <NavSpacer />
-
       <Hero>
         <Eyebrow>What We Offer</Eyebrow>
         <HeroTitle>Premium Rental Services</HeroTitle>
@@ -355,22 +346,10 @@ export function ServicesPage() {
 
       <WhyStrip>
         <WhyInner>
-          <WhyStat>
-            <WhyNumber>500+</WhyNumber>
-            <WhyLabel>Vehicles in Fleet</WhyLabel>
-          </WhyStat>
-          <WhyStat>
-            <WhyNumber>50+</WhyNumber>
-            <WhyLabel>City Locations</WhyLabel>
-          </WhyStat>
-          <WhyStat>
-            <WhyNumber>10k+</WhyNumber>
-            <WhyLabel>Happy Clients</WhyLabel>
-          </WhyStat>
-          <WhyStat>
-            <WhyNumber>99.8%</WhyNumber>
-            <WhyLabel>Satisfaction Rate</WhyLabel>
-          </WhyStat>
+          <WhyStat><WhyNumber>500+</WhyNumber><WhyLabel>Vehicles in Fleet</WhyLabel></WhyStat>
+          <WhyStat><WhyNumber>50+</WhyNumber><WhyLabel>City Locations</WhyLabel></WhyStat>
+          <WhyStat><WhyNumber>10k+</WhyNumber><WhyLabel>Happy Clients</WhyLabel></WhyStat>
+          <WhyStat><WhyNumber>99.8%</WhyNumber><WhyLabel>Satisfaction Rate</WhyLabel></WhyStat>
         </WhyInner>
       </WhyStrip>
 
@@ -385,7 +364,7 @@ export function ServicesPage() {
               <PlanName>Basic</PlanName>
               <PlanPrice><span>from </span>$29<span>/day</span></PlanPrice>
               <PlanFeatures>
-                <li><FontAwesomeIcon icon={faCheckCircle} /> Economy & compact cars</li>
+                <li><FontAwesomeIcon icon={faCheckCircle} /> Economy &amp; compact cars</li>
                 <li><FontAwesomeIcon icon={faCheckCircle} /> Basic insurance</li>
                 <li><FontAwesomeIcon icon={faCheckCircle} /> 200km/day included</li>
                 <li><FontAwesomeIcon icon={faCheckCircle} /> Standard support</li>
@@ -397,7 +376,7 @@ export function ServicesPage() {
               <PlanName featured>Premium</PlanName>
               <PlanPrice featured><span>from </span>$79<span>/day</span></PlanPrice>
               <PlanFeatures featured>
-                <li><FontAwesomeIcon icon={faCheckCircle} /> SUVs & luxury sedans</li>
+                <li><FontAwesomeIcon icon={faCheckCircle} /> SUVs &amp; luxury sedans</li>
                 <li><FontAwesomeIcon icon={faCheckCircle} /> Full insurance cover</li>
                 <li><FontAwesomeIcon icon={faCheckCircle} /> Unlimited mileage</li>
                 <li><FontAwesomeIcon icon={faCheckCircle} /> 24/7 priority support</li>

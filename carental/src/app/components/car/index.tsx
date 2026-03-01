@@ -5,15 +5,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { ICar } from "../../../typings/car";
 
 interface ICarProps extends ICar {}
-
-const lift = keyframes`
-  from { transform: translateY(0); }
-  to { transform: translateY(-6px); }
-`;
 
 const CarCard = styled.div`
   width: 300px;
@@ -182,13 +177,14 @@ export function Car(props: ICarProps) {
         <TopRow>
           <CarName>{name}</CarName>
           <PriceBlock>
-            <DailyPrice>${dailyPrice}<span style={{ fontSize: '0.55rem', color: '#b0a898', fontFamily: 'Courier New', letterSpacing: '0.1em', textTransform: 'uppercase', marginLeft: '2px' }}>/day</span></DailyPrice>
+            <DailyPrice>
+              ${dailyPrice}
+              <span style={{ fontSize: '0.55rem', color: '#b0a898', fontFamily: 'Courier New', letterSpacing: '0.1em', textTransform: 'uppercase', marginLeft: '2px' }}>/day</span>
+            </DailyPrice>
             <MonthlyPrice>${monthlyPrice}/mo</MonthlyPrice>
           </PriceBlock>
         </TopRow>
-
         <Divider />
-
         <SpecsRow>
           <Spec>
             <SpecIcon><FontAwesomeIcon icon={faTachometerAlt} /></SpecIcon>
@@ -203,7 +199,6 @@ export function Car(props: ICarProps) {
             <SpecValue>{gas}</SpecValue>
           </Spec>
         </SpecsRow>
-
         <RentBtn>Rent Now</RentBtn>
       </Body>
     </CarCard>
