@@ -13,7 +13,8 @@ import { ComponentsModule } from './components/components.module';
     DatabaseModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      playground: true,
+      playground: true,    // always on so you can add cars in production
+      introspection: true, // required for playground to work in production
       autoSchemaFile: true,
     }),
     ComponentsModule,
