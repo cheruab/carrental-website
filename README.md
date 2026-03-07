@@ -1,39 +1,40 @@
-# carrental-website
-# Live Demo - https://carental-cheruab.vercel.app
-   ** **#Car Rental Website** 🚗**
-  
-Welcome to the Car Rental Website! 
-This application allows users to browse and rent quality cars for their travel needs.
-The project is built with React for the frontend, NestJS for the backend, and uses a MySQL database with a GraphQL API.
+# 🚗 Car Rental Web Application
 
-   ** **# Features 🌟****
+A modern **Car Rental Web Application** that allows users to browse available vehicles, view detailed car information, and book cars for their travel needs.
 
-**Car Listings:** Browse a wide variety of cars available for rent.
+The project is built using **React** for the frontend and **NestJS with GraphQL** for the backend, with **MySQL** as the database.
 
-**Car Details:** View detailed information about each car, including specifications and pricing.
+---
 
-**Booking System:** Users can book their desired cars for a specific duration.
+## ✨ Features
 
-**GraphQL API:** Efficiently query and mutate data using the GraphQL API.
+* 🚘 **Car Listings** – Browse a variety of available rental cars
+* 📄 **Car Details** – View specifications, pricing, and information
+* 📅 **Booking System** – Rent cars for a selected time period
+* ⚡ **GraphQL API** – Efficient data fetching and mutations
+* 📱 **Responsive Design** – Works smoothly on desktop and mobile devices
 
-**Responsive Design:** The application is designed to work seamlessly on various devices.
+---
 
-   ** **#Technologies Used 🛠️****
+## 🛠 Tech Stack
 
-**Frontend:**
-  React
-  Tailwind CSS
+### Frontend
 
-**Backend:**
-  NestJS
-  GraphQL
+* React
+* Tailwind CSS
 
-**Database:**
- MySQL
-# Screenshots
-![d3djnrrv](https://github.com/cheruab/carrental-website/assets/80851534/8c5e70ed-3f84-4756-9bb7-c236c12eb4c3)
-![p2](https://github.com/cheruab/carrental-website/assets/80851534/b568254b-b45a-45c8-9e03-7e466c87de84) 
-![p3](https://github.com/cheruab/carrental-website/assets/80851534/5a2e7f2d-6ecf-480e-a99c-ea5db6b17e66)
-![p4](https://github.com/cheruab/carrental-website/assets/80851534/464a13f6-5e5f-470b-b3d2-fe76c545f86a)
+### Backend
+
+* NestJS
+* GraphQL
+
+### Database
+
+* MySQL
+
+---
 
 
+---
+
+⭐ If you like this project, feel free to **star the repository**.
